@@ -41,7 +41,7 @@ Resume:
 {text[:4000]}
 """
 
-        response = model.invoke([HumanMessage(content=prompt)])
+        response = model.invoke(prompt)
         result = response.content
 
         st.write("## 📊 Analysis Result")
