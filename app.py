@@ -7,10 +7,7 @@ import PyPDF2
 load_dotenv()
 
 # Load model
-model = ChatGroq(
-    model="llama-3.1-8b-instant",
-    temperature=0
-)
+model = ChatGroq(model="llama-3.3-70b-versatile", temperature=0)
 
 st.title("📄 AI Resume Analyzer")
 st.subheader("Developed by Roshan R Pednekar")
