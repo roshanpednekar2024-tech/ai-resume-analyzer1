@@ -1,14 +1,13 @@
 import streamlit as st
 from langchain_groq import ChatGroq
-from langchain_core.messages import HumanMessage
 from dotenv import load_dotenv
 import PyPDF2
 
 load_dotenv()
 
-# Updated to a stable, currently supported model
-# Load model
-model = ChatGroq(model="llama3-8b-8192", temperature=0)
+# Updated to a currently active model endpoint
+model = ChatGroq(model="llama-3.1-8b-instant", temperature=0)
+
 st.title("📄 AI Resume Analyzer")
 st.subheader("Developed by Roshan R Pednekar")
 st.write("Upload your resume and get AI suggestions")
@@ -41,6 +40,7 @@ Resume:
 {text[:4000]}
 """
 
+        # Pass prompt directly as a string to avoid BadRequestError
         response = model.invoke(prompt)
         result = response.content
 
